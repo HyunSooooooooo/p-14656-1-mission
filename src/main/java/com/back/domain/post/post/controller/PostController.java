@@ -80,7 +80,7 @@ public class PostController {
 
     public Page<Post> findAll(@RequestParam (defaultValue = "0") int page,
                               @RequestParam (defaultValue = "10") int size) {
-        Pageable pageable = PageRequest.of(page,size);
+        Pageable pageable = PageRequest.of(page, size);
         return postService.findAll(pageable);
-
+    }
 }
