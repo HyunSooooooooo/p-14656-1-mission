@@ -1,6 +1,7 @@
 
 package com.back.domain.post.post.document;
 
+import lombok.Data;
 import lombok.Getter;
 import org.springframework.data.annotation.*;
 import org.springframework.data.elasticsearch.annotations.DateFormat;
@@ -11,7 +12,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.time.OffsetDateTime;
 
 @Document(indexName = "posts")
-@Getter
+@Data
 public class Post {
     @Id
     private String id;
@@ -42,16 +43,5 @@ public class Post {
         this.lastModifiedAt = OffsetDateTime.now();
     }
 
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", author='" + author + '\'' +
-                ", createdAt=" + createdAt +
-                ", lastModifiedAt=" + lastModifiedAt +
-                '}';
-    }
 }
 
