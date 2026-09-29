@@ -83,4 +83,15 @@ public class PostController {
         Pageable pageable = PageRequest.of(page, size);
         return postService.findAll(pageable);
     }
+
+    @GetMapping("/search")
+    public Page<Post> search(
+            @RequestParam String keyword,
+            @RequestParam(defaultValue = "titleAndContent") String searchType,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        return postService.search(keyword, searchType, pageable);
+    }
 }
